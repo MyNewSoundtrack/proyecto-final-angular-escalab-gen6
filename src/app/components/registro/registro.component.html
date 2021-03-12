@@ -1,0 +1,42 @@
+<div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto form p-5 animate__animated animate__fadeInLeft">
+    <div class="row">
+        <div class="col-md-12 mx-auto ">
+            <div class="card" style="width: 18rem;">
+                <div class="card-header">
+                    Registro con Firebase
+                </div>
+                <form #formRegistro="ngForm" (ngSubmit)="onSubmit(formRegistro)">
+                    <div class="card-body">
+                        <span *ngIf="formRegistro.submitted && formRegistro.controls['nombre_user'].errors" class="text-danger animate__animated animate__fadeIn">Nombre no válido.</span>
+                        <div class="mb-3">
+                            <label for="nombre_user" class="form-label">Nombre</label>
+                            <input type="text" minlength="2" class="form-control" id="nombre_user" aria-describedby="emailHelp"
+                                name="nombre_user" [(ngModel)]="usuario.nombre" required>
+                        </div>
+                        <span *ngIf="formRegistro.submitted && formRegistro.controls['email_user'].errors" class="text-danger animate__animated animate__fadeIn">Email no válido.</span>
+                        <div class="mb-3">
+                            <label for="email_user" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email_user" aria-describedby="emailHelp" placeholder="ejemplo@ejemplo.com"
+                                name="email_user" [(ngModel)]="usuario.email" required email>
+                        </div>
+                        <span *ngIf="formRegistro.submitted && formRegistro.controls['pass_user'].errors" class="text-danger animate__animated animate__fadeIn">Contraseña no válida.</span>
+                        <div class="mb-3">
+                            <label for="pass_user" class="form-label">Password</label>
+                            <input type="password" class="form-control" name="pass_user" id="pass_user" placeholder="Mínimo 6 carácteres"
+                                [(ngModel)]="usuario.password" minlength="6" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="checkbox" name="recordar_pass" id="recordar_pass" [(ngModel)]="recordar_pass">
+                            <label for="recordar_pass" class="ml-1" style="font-size: 0.8em;">Recordar Usuario</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Registrarse</button>
+                    </div>
+                </form>
+                <div class="card-footer">
+                    <small>Si ya tienes una cuenta, inicia sesión <a routerLink="/login">acá</a>.</small>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

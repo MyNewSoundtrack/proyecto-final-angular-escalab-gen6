@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+/* .main-cont{
+    height: 100vh;
+    position: sticky;
+}
+
+.main-cont .row {
+    position: relative;
+    height: 100vh;
+} */
+
+.cargar{
+    position: absolute;
+    top: 0;
+}
+
+.body{
+    overflow-y: hidden !important;
+}

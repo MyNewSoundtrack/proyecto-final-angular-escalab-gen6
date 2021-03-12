@@ -1,0 +1,13 @@
+.fotos_pkmn {
+    display: flex;
+    justify-content: space-between;
+}
+
+* {
+    box-sizing: border-box
+}
+
+.barra_stat {
+    /* width: 100%; */
+    /* background-color: #ddd; */
+}

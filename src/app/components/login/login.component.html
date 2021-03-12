@@ -1,0 +1,38 @@
+<div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto form p-5 animate__animated animate__fadeInRight">
+    <div class="row">
+        <div class="col-md-12 mx-auto ">
+            <div class="card" style="width: 18rem;">
+                <div class="card-header">
+                    Login
+                </div>
+                <div class="card-body">
+                    <form #formLogin="ngForm" (ngSubmit)="login(formLogin)">
+                        <span *ngIf="formLogin.submitted && formLogin.controls['email_user'].errors"
+                            class="text-danger animate__animated animate__fadeIn">Email no válido.</span>
+                        <div class="mb-3">
+                            <label for="email_user" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email_user" name="email_user"
+                                [(ngModel)]="usuario.email" required email>
+                        </div>
+                        <span *ngIf="formLogin.submitted && formLogin.controls['pass_user'].errors"
+                            class="text-danger animate__animated animate__fadeIn">Contraseña no válida.</span>
+                        <div class="mb-3">
+                            <label for="pass_user" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="pass_user" name="pass_user"
+                                [(ngModel)]="usuario.password" minlength="6" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="checkbox" name="recordar_pass" id="recordar_pass" [(ngModel)]="recordar_pass">
+                            <label for="recordar_pass" class="ml-1" style="font-size: 0.8em;">Recordar Usuario</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+                    </form>
+                </div>
+                <div class="card-footer">
+                    <small>Registrarse con Firebase <a routerLink="/registro">acá</a>.</small>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,84 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-7">
+            <h1>{{pokemon_a_mostrar.nombre | titlecase}}</h1>
+            <h4>{{pokemon_a_mostrar.nombre_jp}}</h4>
+            <ng-container *ngFor="let tipo of pokemon_a_mostrar.tipos">
+                <img class="ml-1 animate__animated animate__fadeIn" height="30px" [src]="'assets/icons/tipos/'+tipo.type.name+'.png'">
+            </ng-container>
+        </div>
+        <div class="col-md-5" style="margin-left: 0%;">
+            <p> {{pokemon_a_mostrar.descripcion}} </p>
+        </div>
+    </div>
+    <hr>
+    <div class="row fotos_pkmn">
+        <div class="col-md-6"> <img src="{{pokemon_a_mostrar.url_foto}}"> </div>
+        <div class="col-md-6"> <img src="{{pokemon_a_mostrar.url_foto_bk}}"> </div>
+        <div class="col-md-6"> <img src="{{pokemon_a_mostrar.url_foto_shiny}}"> </div>
+        <div class="col-md-6"> <img src="{{pokemon_a_mostrar.url_foto_shiny_bk}}"> </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-md-6">
+            <h4>Stats</h4>
+            HP:
+            <div class="progress">
+                <!-- <div [ngClass]="claseBarraStat(pokemon_a_mostrar.base_hp)" role="progressbar" [attr.aria-valuenow]="calcularAncho(pokemon_a_mostrar.base_hp)" aria-valuemin="0" aria-valuemax="100" [style.width]="calcularAncho(pokemon_a_mostrar.base_hp)"></div> -->
+                <div [ngClass]="claseBarraStat(pokemon_a_mostrar.base_hp)" role="progressbar" [attr.aria-valuenow]="calcularAncho(pokemon_a_mostrar.base_hp)" aria-valuemin="0" aria-valuemax="100" [style.width]="calcularAncho(pokemon_a_mostrar.base_hp)+'%'"></div>
+            </div>
+            Ataque:
+            <div class="progress">
+                <div [ngClass]="claseBarraStat(pokemon_a_mostrar.base_atk) " role="progressbar " [attr.aria-valuenow]="calcularAncho(pokemon_a_mostrar.base_atk)" aria-valuemin="0 " aria-valuemax="100 " [style.width]="calcularAncho(pokemon_a_mostrar.base_atk)+'%'"></div>
+            </div>
+            Defensa:
+            <div class="progress">
+                <div [ngClass]="claseBarraStat(pokemon_a_mostrar.base_def) " role="progressbar " [attr.aria-valuenow]="calcularAncho(pokemon_a_mostrar.base_def)" aria-valuemin="0 " aria-valuemax="100 " [style.width]="calcularAncho(pokemon_a_mostrar.base_def)+'%'"></div>
+            </div>
+            Ataque Especial:
+            <div class="progress">
+                <div [ngClass]="claseBarraStat(pokemon_a_mostrar.base_spa) " role="progressbar " [attr.aria-valuenow]="calcularAncho(pokemon_a_mostrar.base_spa)" aria-valuemin="0 " aria-valuemax="100 " [style.width]="calcularAncho(pokemon_a_mostrar.base_spa)+'%'"></div>
+            </div>
+            Defensa Especial:
+            <div class="progress">
+                <div [ngClass]="claseBarraStat(pokemon_a_mostrar.base_spd) " role="progressbar " [attr.aria-valuenow]="calcularAncho(pokemon_a_mostrar.base_spd)" aria-valuemin="0 " aria-valuemax="100 " [style.width]="calcularAncho(pokemon_a_mostrar.base_spd)+'%'"></div>
+            </div>
+            Velocidad:
+            <div class="progress">
+                <div [ngClass]="claseBarraStat(pokemon_a_mostrar.base_spe) " role="progressbar " [attr.aria-valuenow]="calcularAncho(pokemon_a_mostrar.base_spe)" aria-valuemin="0 " aria-valuemax="100 " [style.width]="calcularAncho(pokemon_a_mostrar.base_spe)+'%'"></div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h4>Información</h4>
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <th scope="row">Alto</th>
+                        <td> {{pokemon_a_mostrar.alto/10}} Mts </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Peso</th>
+                        <td> {{pokemon_a_mostrar.peso/10}} Kgs </td>
+                    </tr>
+                </tbody>
+            </table>
+            <h4>Habilidades (En Inglés)</h4>
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <th scope="row">Normales</th>
+                        <ng-container *ngFor="let habilidad of pokemon_a_mostrar.habilidades;  let i = index ">
+                            <td *ngIf="!habilidad.is_hidden"> {{habilidad.ability.name}} </td>
+                        </ng-container>
+                    </tr>
+                    <tr>
+                        <th scope="row">Ocultas</th>
+                        <ng-container *ngFor="let habilidad of pokemon_a_mostrar.habilidades;  let i = index ">
+                            <td *ngIf="habilidad.is_hidden"> {{habilidad.ability.name}} </td>
+                        </ng-container>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

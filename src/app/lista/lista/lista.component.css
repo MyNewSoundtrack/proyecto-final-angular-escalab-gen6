@@ -1,0 +1,5 @@
+.anyClass {
+    height:87vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }

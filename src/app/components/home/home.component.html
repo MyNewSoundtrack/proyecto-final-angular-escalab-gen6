@@ -1,0 +1,33 @@
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-8">
+                <h1 class="display-4">Pokédex para Proyecto Final ESCALAB - Angular Generación 6 2021</h1>
+                <p class="lead">Desarrollado por Luis Sies en Angular 11.1.4 <img src="assets/icons/angular.svg"
+                        alt="Angular logo" height="30px"></p>
+                <p>La API usada es "PokéAPI V2" y la documentación está <a href="https://pokeapi.co/docs/v2"
+                        target="_blank">aquí.</a> </p>
+            </div>
+            <div class="col-md-4 carta-random">
+                <div class="card animate__animated animate__fadeIn" *ngIf="random_pokemon.id">
+                    <h5 class="card-header">Pokémon Random</h5>
+                    <img class="animate__animated animate__fadeIn" [src]="random_pokemon.url_foto" class="card-img-top">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12 d-inline-flex">
+                                <h5 class="card-title mr-1">{{random_pokemon.nombre | titlecase}}</h5>
+                                <ng-container *ngFor="let tipo of random_pokemon.tipos">
+                                    <img class="ml-1 animate__animated animate__fadeIn" height="30px" [src]="'assets/icons/tipos/'+tipo.type.name+'.png'">
+                                </ng-container>
+
+                            </div>
+                        </div>
+                        <p class="card-text animate__animated animate__fadeIn">{{random_pokemon.descripcion}}</p>
+                        <!-- <a [routerLink]="'/lista/pokemon/'+random_pokemon.id" class="btn btn-primary">Ver info</a> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
