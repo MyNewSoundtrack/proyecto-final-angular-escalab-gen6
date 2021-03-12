@@ -15,7 +15,7 @@ export class AuthService {
   // https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=[API_KEY]
 
   private url: string = 'https://identitytoolkit.googleapis.com/v1/accounts';
-  private api_key = 'AIzaSyD_MWyWPES8QfcXfRp02BlYp44IMgcvwuc';
+  private api_key = 'PEGAR ACÁ LA API KEY RECIBIDA POR EMAIL';
 
   token_usuario: string = '';
 
